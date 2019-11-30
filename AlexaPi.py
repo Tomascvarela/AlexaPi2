@@ -121,8 +121,9 @@ def downloadVideo(path):
     video = pafy.new(url)
     song = video.getbestaudio()
     filename = song.download(filepath=tempSongDir.name)
-    return video.title
-
+    title = video.title
+    realTitle = title.replace("/", "_")
+    return realTitle
 
 while True:
     startUp()
